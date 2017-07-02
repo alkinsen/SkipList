@@ -31,21 +31,13 @@ public class Operations {
 				line= br.readLine();
 			}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
 	}
+	
 	public void writeOutput(String filename){
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
@@ -65,14 +57,10 @@ public class Operations {
 				writer.write(current.getKey()+" "+current.getHeight() + "\r\n");
 				currentBottom = currentBottom.getRight();
 			}
-			
 			writer.flush();
 			writer.close();
-			
-			
-			System.out.println("Your skiplist has been saved.");
-			
-			
+		
+			System.out.println("Your skiplist has been saved.");	
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
