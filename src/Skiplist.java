@@ -7,19 +7,22 @@ public class Skiplist {
 	public final int negativeInf = -1;
 	public final int positiveInf = 100;
 
-	
 	public int getNumElements() {
 		return numElements;
 	}
+	
 	public void setNumElements(int numElements) {
 		this.numElements = numElements;
 	}
+	
 	public int getLoad() {
 		return load;
 	}
+	
 	public void setLoad(int load) {
 		this.load = load;
 	}
+	
 	public Skiplist(int numElements) {
 		this.numElements = numElements;
 		this.m = (int) (Math.ceil((Math.log(this.numElements / Math.log(2))) + 1));
@@ -47,27 +50,35 @@ public class Skiplist {
 		}
 
 	}
+	
 	public Node getTopNegativeInf() {
 		return topNegativeInf;
 	}
+	
 	public void setTopNegativeInf(Node topNegativeInf) {
 		this.topNegativeInf = topNegativeInf;
 	}
+	
 	public Node getTopPositiveInf() {
 		return topPositiveInf;
 	}
+	
 	public void setTopPositiveInf(Node topPositiveInf) {
 		this.topPositiveInf = topPositiveInf;
 	}
+	
 	public int getM() {
 		return m;
 	}
+	
 	public void setM(int m) {
 		this.m = m;
 	}
+	
 	public int heightGenerator(int key){
 		return key % this.m;
 	}
+	
 	public void insert(int key, int height){
 		Node currentLeft = topNegativeInf;
 		Node current;
@@ -85,6 +96,7 @@ public class Skiplist {
 			currentLeft = currentLeft.getBottom();
 		}		
 	}
+	
 	public void insert(int key){
 		Node currentLeft = topNegativeInf;
 		Node current;
@@ -102,13 +114,8 @@ public class Skiplist {
 			addAfter(current, new Node(key));
 			currentLeft = currentLeft.getBottom();
 		}		
-		
-		
-		
-		
-		
-		
 	}
+	
 	public void addAfter(Node parent, Node toBeAdded){
 		Node temp = parent.getRight();
 
@@ -131,26 +138,7 @@ public class Skiplist {
 				temp.setBottom(toBeAdded);
 				toBeAdded.setTop(temp);
 			}
-			temp = temp.getRight();
-			
-		}
-		
-		
+			temp = temp.getRight();		
+		}		
 	}
-	
-
-
-	
-
-
-	
-
-
-
 }
-
-
-
-
-
-
